@@ -85,6 +85,12 @@ app.controller('stickerController', ['$scope', function($scope) {
    stkTime:''},
 ];
 
+  $scope.colorSet = ["#9fdbfc", "#fcbfbf", "#fceebf"];
+
+  $scope.randomnizeColor = function() {
+    $scope.bgColor = colorSet[Math.floor(Math.random() * $scope.colorSet.length)];
+  }
+
   $scope.save = function(){
       if(!$scope.newSticker || $scope.newSticker.length < 1) return;
       var stk = new Stickers({stkContent: $scope.newSticker});

@@ -1,5 +1,10 @@
+body {
+	color:#606060;
+	font-family: 'Sanchez', serif;
+}
+
 a {
-  color: #00B7FF;
+  text-decoration: none;
 }
 
 ul {
@@ -8,19 +13,35 @@ ul {
 
 button {
   background-color: transparent;
-  border-radius: 20px;
-  border: 1px solid lightblue;
-  padding: 2%;
+  font-family: 'Lobster', cursive;
+  padding: 1%;
+  border: none;
+  color:#606060;
 }
 
-.bgBlue {
-	background-color: #77bdff;
+
+.navigation-bar {
+	display: block;
+	background-color: #fcbfbf;
+	height: auto;
+	padding: 1%;
 }
 
-.bgPink {
-	background-color: #ffc4d9;
+.navigation-bar .write-btn {
+	position: absolute;
+	top: 1%;
+	right:10%;
+	font-size: 1.5vw;
 }
 
-.bgYellow {
-	background-color: #ffecba;
+.navigation-bar .search-btn {
+	position: absolute;
+	top: 1%;
+	right: 1%;
+	font-size: 1.5vw;
+}
+
+.navigation-bar span {
+	font-family: 'Lobster', cursive;
+	font-size: 2vw;
 }

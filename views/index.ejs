@@ -5,17 +5,46 @@
   <title>Tree Hollow</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
   <script src="javascripts/controller.js"></script>
 </head>
 
-<body class="avenir">
- <h1 class="tc">Tree Hollow</h1>
- <a href="/" 
+<body>
+
+<div class="navigation-container">
+<div class="navigation-bar">
+  <!-- <a href="/" 
     style="margin:auto; 
-           display: table;">Main Page</a>
+           display: table;">Main Page</a> -->
+ <span>Tree Hollow</span>
+ <button   class="write-btn"
+           type="button" 
+           ng-click="writeDetail=true;" >Write</button>
+   <button class="search-btn"
+           type="button" 
+           ng-click="searchDetail=true;">Search</button>
+  </div>
+
+   <!--Shows on the home page...add and search-->
+
+  <!--Shows when user choose write-->
+  <div ng-show="writeDetail">
+   <input type="text" placeholder="Jot something down" ng-model="newSticker">
+   <button type="button" ng-click="save()">Throw it!</button>
+   <button type="button" ng-click=";writeDetail=false">Cancel</button>
+  </div>
+ 
+
+ <div ng-show="searchDetail">
+    <input type="text" placeholder="Looking for..." ng-model="searchText">
+
+   <button type="button" ng-click="searchDetail=false">Back</button>
+  </div> 
+ </div>
  <!--Home page-->
  <script type="text/ng-template" id="home.html">
  <ul>
@@ -26,51 +55,24 @@
  
 <!--Public board, no authentication-->
  <script type="text/ng-template" id="public.html">
- <!--Shows on the home page...add and search-->
-  <div  ng-show="mainPage"
-        class="center"
-        style="margin-left: 25%;">
-   <button type="button" 
-           ng-click="writeDetail=true; mainPage=false"
-           style="margin: 2%;" >Write a New Message</button>
-   <button type="button" 
-           ng-click="searchDetail=true; mainPage=false"
-           style="margin: 2%;">Look for Existing Message</button>
-  </div> 
-  <!--Shows when user choose write-->
-  <div ng-show="writeDetail">
-   <input type="text" placeholder="Jot something down" ng-model="newSticker">
-   <button type="button" ng-click="save()">Throw it!</button>
-   <button type="button" ng-click="mainPage=true;writeDetail=false">Cancel</button>
-  </div>
- 
-
- <div ng-show="searchDetail">
-    <input type="text" placeholder="Looking for..." ng-model="searchText">
- <!--  <ul>
-    <li ng-repeat="stk in stickers | filter:searchText">
-     {{stk.stkContent}} 
-     {{stk.stkTime}}
-    </li>
-   </ul> -->
-   <button type="button" ng-click="mainPage=true; searchDetail=false">Back</button>
-  </div> 
 
  <ul class="cf w-100 ph2">
-    <li ng-repeat="stk in stickers"  
+    <li ng-repeat="stk in stickers | filter: searchText"  
         ng-mouseover="showMore=true" 
-        ng-mouseleave="showMore=false;editing[$index]=false"
-        class="fl w-50 w-third-m w-25-ns tc pa1 dim">
+        ng-mouseleave="showMore=false;editing[$index]=false;deleting[$index]=false;"
+        class="fl w-50 w-third-m w-25-ns tc pa1 grow">
     <!--Main content-->
-    <div class="aspect-ratio aspect-ratio--1x1 br4" ng-style="randomnizeColor()">
+    <div class="aspect-ratio aspect-ratio--1x1 br4" 
+        ng-style="{background: colorSet[$index%colorSet.length]}">
        <div class="pa2 f7">
          {{stk.uniID}}
        </div>
        <div class="ph3 pv4 f5">
          {{stk.stkContent}}
        </div>
-       <div ng-show="showMore"> 
 
+
+       <div ng-show="showMore"> 
        <!--Showing editing and deleting details when mouseover-->
          <button ng-click="editDetail($index)">Edit</button>
          <button ng-click="deleteDetail($index)">Delete</button>
