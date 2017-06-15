@@ -1,0 +1,145 @@
+//fake data
+
+var fakeData = [
+  {name: yc,
+   uniID: "23TplPdS",
+   stkContent: "This is a test",
+   stkTime:},
+   
+   {name: lalala,
+   uniID: "46Juzcyx",
+   stkContent: "Is it working? Cool, you are done then! Is NOT working? take a look at the full repository.",
+   stkTime:},
+   
+   {name: y77cao,
+   uniID: "dBvJIh-H",
+   stkContent: "I appreciate your bottom-up approach to teaching. Start with the smallest building blocks and then assemble them into something meaningful.",
+   stkTime:},
+   
+   {name: loo,
+   uniID: "2WEKaVNO",
+   stkContent: "I think you forgot to include the step of installing mongoose. I had to 'npm install mongoose' before I was able to require('mongoose').",
+   stkTime:},
+   
+   {name: ehhhh,
+   uniID: "dogPzIz8",
+   stkContent: "I'm glad to hear it!",
+   stkTime:},
+   
+   {name: WTF,
+   uniID: "nYrnfYEv"
+   stkContent: "Amazingly short non-sequential url-friendly unique id generator. ShortId creates amazingly short non-sequential url-friendly unique ids.",
+   stkTime:},
+   
+   {name: Alice,
+   uniID: "a4vhAoFG",
+   stkContent: "Short one here",
+   stkTime:},
+   
+   {name: yc,
+   uniID: "23TplPdS",
+   stkContent: "This is a test",
+   stkTime:},
+   
+   {name: lalala,
+   uniID: "46Juzcyx",
+   stkContent: "Is it working? Cool, you are done then! Is NOT working? take a look at the full repository.",
+   stkTime:},
+   
+   {name: y77cao,
+   uniID: "dBvJIh-H",
+   stkContent: "I appreciate your bottom-up approach to teaching. Start with the smallest building blocks and then assemble them into something meaningful.",
+   stkTime:},
+   
+   {name: loo,
+   uniID: "2WEKaVNO",
+   stkContent: "I think you forgot to include the step of installing mongoose. I had to 'npm install mongoose' before I was able to require('mongoose').",
+   stkTime:},
+   
+   {name: ehhhh,
+   uniID: "dogPzIz8",
+   stkContent: "I'm glad to hear it!",
+   stkTime:},
+   
+   {name: WTF,
+   uniID: "nYrnfYEv"
+   stkContent: "Amazingly short non-sequential url-friendly unique id generator. ShortId creates amazingly short non-sequential url-friendly unique ids.",
+   stkTime:},
+   
+   {name: Alice,
+   uniID: "a4vhAoFG",
+   stkContent: "Short one here",
+   stkTime:},
+   
+   {name: yc,
+   uniID: "23TplPdS",
+   stkContent: "This is a test",
+   stkTime:},
+   
+   {name: lalala,
+   uniID: "46Juzcyx",
+   stkContent: "Is it working? Cool, you are done then! Is NOT working? take a look at the full repository.",
+   stkTime:},
+   
+   {name: y77cao,
+   uniID: "dBvJIh-H",
+   stkContent: "I appreciate your bottom-up approach to teaching. Start with the smallest building blocks and then assemble them into something meaningful.",
+   stkTime:},
+   
+   {name: loo,
+   uniID: "2WEKaVNO",
+   stkContent: "I think you forgot to include the step of installing mongoose. I had to 'npm install mongoose' before I was able to require('mongoose').",
+   stkTime:},
+   
+   {name: ehhhh,
+   uniID: "dogPzIz8",
+   stkContent: "I'm glad to hear it!",
+   stkTime:},
+   
+   {name: WTF,
+   uniID: "nYrnfYEv"
+   stkContent: "Amazingly short non-sequential url-friendly unique id generator. ShortId creates amazingly short non-sequential url-friendly unique ids.",
+   stkTime:},
+   
+   {name: Alice,
+   uniID: "a4vhAoFG",
+   stkContent: "Short one here",
+   stkTime:},
+   {name: yc,
+   uniID: "23TplPdS",
+   stkContent: "This is a test",
+   stkTime:},
+   
+   {name: lalala,
+   uniID: "46Juzcyx",
+   stkContent: "Is it working? Cool, you are done then! Is NOT working? take a look at the full repository.",
+   stkTime:},
+   
+   {name: y77cao,
+   uniID: "dBvJIh-H",
+   stkContent: "I appreciate your bottom-up approach to teaching. Start with the smallest building blocks and then assemble them into something meaningful.",
+   stkTime:},
+   
+   {name: loo,
+   uniID: "2WEKaVNO",
+   stkContent: "I think you forgot to include the step of installing mongoose. I had to 'npm install mongoose' before I was able to require('mongoose').",
+   stkTime:},
+   
+   {name: ehhhh,
+   uniID: "dogPzIz8",
+   stkContent: "I'm glad to hear it!",
+   stkTime:},
+   
+   {name: WTF,
+   uniID: "nYrnfYEv"
+   stkContent: "Amazingly short non-sequential url-friendly unique id generator. ShortId creates amazingly short non-sequential url-friendly unique ids.",
+   stkTime:},
+   
+   {name: Alice,
+   uniID: "a4vhAoFG",
+   stkContent: "Short one here",
+   stkTime:}
+   
+   
+   
+];

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sticker Board</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
+
+</head>
+
+<body ng-app="app">
+ <h1>Sticker Board</h1>
+ 
+ <script type="text/ng-template" id="stickers.html">
+ <input ng-model="name" placeholder="Type world..."> Hello {{name}}
+
+ <ul>
+    <li ng-repeat="stk in stickers">
+     {{stk.stkContent}}
+     <!--
+     <div ng-show="showMore && !editing[index] && !deleting[index]">
+     <a href= "#/{{stk.id}}" ng-click="editDetail($index)">Edit</a>
+     <a href= "#/{{stk.id}}" ng-click="deleteDetail($index)">Delete</a>
+     </div>
+     
+     <div ng-show="editing[index]">
+      <input type="text" ng-model="stk.stkContent">  
+      <button ng-click="commit($index)">Update</button>
+      <button ng-click="cancel($index)">Cancel</button>
+     </div>
+     
+     <div ng-show="deleting[index]">
+     <p>Are you sure you want to remove this sticker?</p>
+     <button ng-click="remove($index)">Yes! Get rid of it</button>
+     <button ng-click="cancel($index)">Leave it for now</button>
+     </div>  -->
+    </li>
+ </ul>
+ 
+ <!--
+  <div  ng-show="mainPage">
+   <button type="button" ng-click="writeDetail=true; mainPage=false" >Write a New Sticker</button>
+   <button type="button" ng-click="searchDetail=true; mainPage=false">Look for Existing Sticker</button>
+  </div> 
+  
+  <div ng-show="writeDetail">
+   <input type="text" placeholder="Jot something down" ng-model="newSticker">
+   <button type="button" ng-click="save()">Stick it on my board</button>
+   <button type="button" ng-click="mainPage=true">Cancel</button>
+  </div>
+ 
+
+ <div ng-show="searchDetail">
+    <input type="text" placeholder="Looking for..." ng-model="searchText">
+   <ul>
+    <li ng-repeat="stk in stickers | filter:searchText">
+     {{stk.stkContent, stk.stkTime | orderBy stk.stkTime }}
+    </li>
+   </ul>
+   <button type="button" ng-click="mainPage=true">Back</button>
+  </div> -->
+</script>
+
+  <div ng-view></div>
+
+ <script>
+var app = angular.module('app', ['ngRoute', 'ngResource']);
+
+  app.factory('Stickers', ['$resource', function($resource) {
+    return $resource('/stickers/:id', null, {
+        'update': {method: 'PUT'}
+    });
+  }]);
+
+  app.controller('stickerController', ['$scope', 'Stickers', function($scope, Stickers) {
+  $scope.editing = [];
+  $scope.deleting = [];
+  $scope.stickers = Stickers;
+/*
+    $scope.save = function(){
+        if(!$scope.newSticker || $scope.newSticker.length < 1) return;
+        var stk = new Stickers({stkContent: $scope.newSticker});
+        stk.$save(function(){
+          $scope.stickers.push(stk);
+          $scope.newStickers = ''; // clear textbox
+        });  
+      }     
+    
+    $scope.editDetail = funciton(index) {
+     $scope.editing[index] = angular.copy($scope.stickers[index]);
+}
+
+   $scope.deleteDetail = funciton(index) {
+    $scope.deleting[index] = angular.copy($scope.stickers[index]);
+}
+
+    $scope.commit = function(index){
+	    var stk = $scope.stickers[index];
+	    Stickers.update({id: todo._id}, todo);
+	    $scope.editing[index] = false;
+	  }
+	  
+    $scope.remove = function(index){
+    	  var stk = $scope.stickers[index];
+    	  Stickers.remove({id: todo._id}, function(){
+    	    $scope.stickers.splice(index, 1);
+    	  });
+    	}
+    		
+    $scope.cancel = function(index){
+	    $scope.todos[index] = angular.copy($scope.editing[index]);
+	    $scope.editing[index] = false;
+	    $scope.deleting[index] = false;
+	  }  */
+	    }]);
+
+//for page direction 
+ app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/', {
+        templateUrl: 'stickers.html',
+        controller: 'stickerController'
+    });
+      $routeProvider.otherwise({
+        redirectTo: '/'
+    });
+      
+  }]); 
+ </script>
+
+</body>
+</html>

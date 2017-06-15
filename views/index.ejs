@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <title>Tree Hollow</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
+  <script src="javascripts/controller.js"></script>
+</head>
+
+<body class="avenir">
+ <h1 class="tc">Tree Hollow</h1>
+ <a href="/" 
+    style="margin:auto; 
+           display: table;">Main Page</a>
+ <!--Home page-->
+ <script type="text/ng-template" id="home.html">
+ <ul>
+  <li><a href="#!/public" > Browse the public tree</a> </li>
+  <li><a href="#!/private">Log in to personal tree</a> </li>
+ </ul>
+ </script>
+ 
+<!--Public board, no authentication-->
+ <script type="text/ng-template" id="public.html">
+ <!--Shows on the home page...add and search-->
+  <div  ng-show="mainPage"
+        class="center"
+        style="margin-left: 25%;">
+   <button type="button" 
+           ng-click="writeDetail=true; mainPage=false"
+           style="margin: 2%;" >Write a New Message</button>
+   <button type="button" 
+           ng-click="searchDetail=true; mainPage=false"
+           style="margin: 2%;">Look for Existing Message</button>
+  </div> 
+  <!--Shows when user choose write-->
+  <div ng-show="writeDetail">
+   <input type="text" placeholder="Jot something down" ng-model="newSticker">
+   <button type="button" ng-click="save()">Throw it!</button>
+   <button type="button" ng-click="mainPage=true;writeDetail=false">Cancel</button>
+  </div>
+ 
+
+ <div ng-show="searchDetail">
+    <input type="text" placeholder="Looking for..." ng-model="searchText">
+ <!--  <ul>
+    <li ng-repeat="stk in stickers | filter:searchText">
+     {{stk.stkContent}} 
+     {{stk.stkTime}}
+    </li>
+   </ul> -->
+   <button type="button" ng-click="mainPage=true; searchDetail=false">Back</button>
+  </div> 
+
+ <ul class="cf w-100 ph2">
+    <li ng-repeat="stk in stickers"  
+        ng-mouseover="showMore=true" 
+        ng-mouseleave="showMore=false;editing[$index]=false"
+        class="fl w-50 w-third-m w-25-ns tc pa1 dim">
+    <!--Main content-->
+    <div class="aspect-ratio aspect-ratio--1x1 br4" ng-style="randomnizeColor()">
+       <div class="pa2 f7">
+         {{stk.uniID}}
+       </div>
+       <div class="ph3 pv4 f5">
+         {{stk.stkContent}}
+       </div>
+       <div ng-show="showMore"> 
+
+       <!--Showing editing and deleting details when mouseover-->
+         <button ng-click="editDetail($index)">Edit</button>
+         <button ng-click="deleteDetail($index)">Delete</button>
+       </div>
+     
+       <div ng-show="editing[$index]&& showMore" >
+         <input type="text" ng-model="stk.stkContent">  
+         <button ng-click="commit($index)">Update</button>
+         <button ng-click="cancel($index)">Cancel</button>
+       </div>
+     
+       <div ng-show="deleting[$index] && showMore">
+         <p>Are you sure you want to remove this message?</p>
+         <button ng-click="remove($index)">Yes! Get rid of it</button>
+         <button ng-click="cancel($index)">Leave it for now</button>
+      </div>  
+    </div>
+
+    </li>
+ </ul>
+</script>
+
+
+<script type="text/ng-template" id="private.html">
+<!--
+ <div ng-hide>
+   <h1>Welcome back,{{userName}}</h1>
+ </div> -->
+ 
+ <div ng-show="mainLogin">
+   <button type="button" 
+           ng-click="localLogin=true; mainLogin=false">Login</button>
+   <button type="button" 
+           href="/auth/facebook" 
+       ng-click="FBLogin=true; mainLogin=false">Login with Facebook</button>
+ </div>
+ 
+ <div ng-show="localLogin">
+  <form action="/login" method="post">
+      <div>
+        <label>Username:</label>
+        <input type="text" name="username" />
+        <br/>
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div>
+        <button>Submit</button>
+        <button>Cancel</button>
+      </div>
+    </form>
+ </div>
+ 
+</script>
+
+
+  <div ng-view></div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+a {
+  color: #00B7FF;
+}
+
+ul {
+	list-style-type: none;
+}
+
+button {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 1px solid lightblue;
+  padding: 2%;
+}
+
+.bgBlue {
+	background-color: #77bdff;
+}
+
+.bgPink {
+	background-color: #ffc4d9;
+}
+
+.bgYellow {
+	background-color: #ffecba;
+}
