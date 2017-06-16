@@ -55,6 +55,7 @@
  
 <!--Public board, no authentication-->
  <script type="text/ng-template" id="public.html">
+ <div class="draggable-container">
 
  <ul class="cf w-100 ph2">
     <li ng-repeat="stk in stickers | filter: searchText"  
@@ -93,6 +94,7 @@
 
     </li>
  </ul>
+ </div>
 </script>
 
 
@@ -132,6 +134,9 @@
 
 
   <div ng-view></div>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+<script type="text/javascript">
+  dragula([document.querySelectorAll('draggable-container')]);
+</script>
 </body>
 </html>
