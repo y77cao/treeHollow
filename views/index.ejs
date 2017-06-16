@@ -10,8 +10,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
-  <script type="text/javascript" src="javascripts/ng-sortable.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="stylesheets/ng-sortable.min.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+  <script src="javascripts/controller.js"></script>
+  <script src="javascripts/dragula.js"></script>
 </head>
 
 <body>
@@ -58,18 +59,14 @@
  <script type="text/ng-template" id="public.html">
  <div class="draggable-container">
 
- <ul class="cf w-100 ph2"
-    as-sortable="board.dragControlListeners" data-ng-model="stickers">
+ <ul class="cf w-100 ph2">
     <li ng-repeat="stk in stickers | filter: searchText"  
-        data-as-sortable-item
         ng-mouseover="showMore=true" 
         ng-mouseleave="showMore=false;editing[$index]=false;deleting[$index]=false;"
         class="fl w-50 w-third-m w-25-ns tc pa1 grow">
     <!--Main content-->
     <div class="aspect-ratio aspect-ratio--1x1 br4" 
-        ng-style="{background: colorSet[$index%colorSet.length]}"
-        data-as-sortable-item-handle
-        >
+        ng-style="{background: colorSet[$index%colorSet.length]}">
        <div class="pa2 f7">
          {{stk.uniID}}
        </div>
