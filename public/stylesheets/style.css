@@ -19,6 +19,20 @@ button {
   color:#606060;
 }
 
+.draggable-container {
+	position: absolute;
+	top: 5%;
+}
+
+.navigation-container {
+	top:0 ;
+	padding: 0;
+	margin: 0;
+	position: fixed;
+	width: 100%;
+	height: auto;
+	z-index: 999;
+}
 
 .navigation-bar {
 	display: block;

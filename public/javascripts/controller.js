@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ngResource']);
+var app = angular.module('app', ['as-sortable','ngRoute', 'ngResource']);
 
 app.controller('stickerController', ['$scope', function($scope) {
   //default values
