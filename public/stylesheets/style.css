@@ -19,6 +19,10 @@ button {
   color:#606060;
 }
 
+button: hover {
+	color: white;
+}
+
 .draggable-container {
 	position: absolute;
 	top: 5%;
@@ -58,4 +62,24 @@ button {
 .navigation-bar span {
 	font-family: 'Lobster', cursive;
 	font-size: 2vw;
+}
+
+.edit-delete-container {
+	position: absolute;
+	bottom: 3%;
+	right: 3%;
+	display: block;
+	width: 30%;
+}
+
+.write-detail {
+	z-index: 999;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 30%;
+	height: 30%;
 }
