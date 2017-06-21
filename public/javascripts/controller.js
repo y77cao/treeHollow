@@ -108,7 +108,7 @@ Stickers.create(
   } */
 
   $scope.save = function(){
-    console.log("Save clicked");
+    console.log("Save clicked"); 
       if(!$scope.newSticker || $scope.newSticker.length < 1) {
         console.log("User input NULL");
         return;
