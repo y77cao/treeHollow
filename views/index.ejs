@@ -35,15 +35,15 @@
  <div ng-show="writeDetail" class="write-detail">
    <input type="text" placeholder="Jot something down" ng-model="newSticker">
    <div>
-   <button type="button" ng-click="save()">Throw it!</button>
-   <button type="button" ng-click=";writeDetail=false">Cancel</button>
+   <button type="button" ng-click="save();">Throw it!</button>
+   <button type="button" ng-click="writeDetail=false">Cancel</button>
    </div>
   </div>
  
 
- <div ng-show="searchDetail">
+ <div ng-show="searchDetail" class="search-detail">
     <input type="text" placeholder="Looking for..." ng-model="searchText">
-   <button type="button" ng-click="searchDetail=false">Back</button>
+   <button type="button" ng-click="searchText='';searchDetail=false">Back</button>
   </div> 
 
  <!--Home page-->

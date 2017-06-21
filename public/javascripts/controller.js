@@ -17,9 +17,9 @@ app.controller('stickerController', ['$scope', 'Stickers', function($scope, Stic
   $scope.stickers = Stickers.query();
 /*
 Stickers.create(
-   {name: 'loo',
-   uniID: '2WEKaVNO',
-   stkContent: 'I think you forgot to include the step of installing mongoose. I had to '}, function(err, todo){
+   {name: 'ehhhh',
+   uniID: 'dogPzIz8',
+   stkContent: 'Im glad to hear it!'}, function(err, todo){
      if(err) console.log(err);
      else console.log(todo);
    });*/
@@ -102,17 +102,23 @@ Stickers.create(
 ]; */
 
   $scope.colorSet = ["#9fdbfc", "#fcbfbf", "#fceebf"];
-
+/*
   $scope.randomnizeColor = function() {
     $scope.bgColor = colorSet[Math.floor(Math.random() * $scope.colorSet.length)];
-  }
+  } */
 
   $scope.save = function(){
-      if(!$scope.newSticker || $scope.newSticker.length < 1) return;
-      var stk = new Stickers({stkContent: $scope.newSticker});
+    console.log("Save clicked");
+      if(!$scope.newSticker || $scope.newSticker.length < 1) {
+        console.log("User input NULL");
+        return;
+      }
+      var stk = new Stickers({name: 'tester', stkContent: 'shit', uniID:'fgsrgegr'});
+      console.log(stk);
     stk.$save(function(){
      $scope.stickers.push(stk);
-         $scope.newSticker = ''; // clear textbox
+         $scope.newSticker = '';
+         console.log('Saved'); // clear textbox
         });  
       }    
     
@@ -127,6 +133,7 @@ Stickers.create(
   $scope.commit = function(index){
     var stk = $scope.stickers[index];
     Stickers.update({id: stk._id}, stk);
+    console.log("Edited");
     $scope.editing[index] = false;
     }
     
