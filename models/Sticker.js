@@ -9,3 +9,11 @@ var stkSchema = new mongoose.Schema({
 module.exports = mongoose.model('Stickers', stkSchema);
 
 //TODO: replies schema???
+/*
+Stickers.create({
+  name: 'Alice',
+  uniID: '12414122',
+  stkContent: 'lalala'}, function(err, todo){
+  if(err) console.log(err);
+  else console.log(todo);
+}); */

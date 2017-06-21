@@ -1,6 +1,12 @@
 var app = angular.module('app', ['ngRoute', 'ngResource']);
 
-app.controller('stickerController', ['$scope', function($scope) {
+app.factory('Stickers', ['$resource', function($resource) {
+    return $resource('/stickers/:id', null, {
+        'update': {method: 'PUT'}
+    });
+  }]);
+
+app.controller('stickerController', ['$scope', 'Stickers', function($scope, Stickers) {
   //default values
   $scope.mainPage = true;
   $scope.showMore = false;
@@ -8,7 +14,17 @@ app.controller('stickerController', ['$scope', function($scope) {
   $scope.deleting = [];
   $scope.writeDetail = false;
   $scope.searchDetail = false;
-  $scope.stickers = [
+  $scope.stickers = Stickers.query();
+/*
+Stickers.create(
+   {name: 'loo',
+   uniID: '2WEKaVNO',
+   stkContent: 'I think you forgot to include the step of installing mongoose. I had to '}, function(err, todo){
+     if(err) console.log(err);
+     else console.log(todo);
+   });*/
+
+  /*[
   {name: 'yc',
    uniID: '23TplPdS',
    stkContent: 'This is a test',
@@ -83,7 +99,7 @@ app.controller('stickerController', ['$scope', function($scope) {
    uniID: 'nYrnfYEv',
    stkContent: 'Amazingly short non-sequential url-friendly unique id generator. ShortId creates amazingly short non-sequential url-friendly unique ids.',
    stkTime:''},
-];
+]; */
 
   $scope.colorSet = ["#9fdbfc", "#fcbfbf", "#fceebf"];
 
@@ -126,11 +142,6 @@ app.controller('stickerController', ['$scope', function($scope) {
     $scope.editing[index] = false;
     $scope.deleting[index] = false;
         }
-/*
-  $scope.randomnizeColor = function() {
-    var temp = Math.floor((Math.random() * 3) + 1);
-    if (temp===1) return {background-color: "#77bdff"}
-  }  */
       }]); 
 
 app.controller('loginController', ['$scope', function($scope) {
