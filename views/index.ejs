@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="app">
 
 <head>
   <title>Tree Hollow</title>
@@ -15,27 +15,28 @@
   <script src="javascripts/dragula.js"></script>
 </head>
 
-<body ng-app="app">
+<body ng-controller="parentController">
 
-<div class="navigation-container">
-<div class="navigation-bar">
-  <!-- <a href="/" 
-    style="margin:auto; 
-           display: table;">Main Page</a> -->
- <span>Tree Hollow</span>
- <button   class="write-btn"
-           type="button" 
-           ng-click="writeDetail=true;searchDetail=false;" >Write</button>
-   <button class="search-btn"
-           type="button" 
-           ng-click="searchDetail=true;writeDetail=false;">Search</button>
-  </div>
- </div>
-
- <div ng-show="writeDetail" class="write-detail">
-   <input type="text" placeholder="Jot something down" ng-model="newSticker">
-   <button type="button" ng-click="save()">Throw it!</button>
-   <button type="button" ng-click="writeDetail=false">Cancel</button>
+<div>
+   <div class="navigation-container">
+      <div class="navigation-bar">
+       <!-- <a href="/" 
+       style="margin:auto; 
+              display: table;">Main Page</a> -->
+         <span>Tree Hollow</span>
+         <button   class="write-btn"
+              type="button" 
+              ng-click="writeDetail=true;searchDetail=false;" >Write</button>
+         <button class="search-btn"
+              type="button" 
+              ng-click="searchDetail=true;writeDetail=false;">Search</button>
+         </div>
+    </div>
+   
+    <div ng-show="writeDetail" class="write-detail">
+      <input type="text" placeholder="Jot something down" ng-model="newSticker">
+      <button type="button" ng-click="save();writeDetail=false">Throw it!</button>
+      <button type="button" ng-click="writeDetail=false">Cancel</button>
   </div>
  
 
@@ -43,6 +44,7 @@
     <input type="text" placeholder="Looking for..." ng-model="searchText">
    <button type="button" ng-click="searchText='';searchDetail=false">Back</button>
   </div> 
+  </div>
 
  <!--Home page-->
  <script type="text/ng-template" id="home.html">
@@ -59,7 +61,7 @@
  <ul class="cf w-100 ph2">
     <li ng-repeat="stk in stickers | filter: searchText"  
         ng-mouseover="showMore=true" 
-        ng-mouseleave="showMore=false;editing[$index]=false;deleting[$index]=false;"
+        ng-mouseleave="showMore=false"
         class="fl w-50 w-third-m w-25-ns tc pa1 grow">
     <!--Main content-->
     <div class="aspect-ratio aspect-ratio--1x1 br4" 
@@ -78,16 +80,16 @@
          <button ng-click="deleteDetail($index)">Delete</button>
        </div>
      
-       <div ng-show="editing[$index]&& showMore" >
+       <div ng-show="editing[$index]" >
          <input type="text" ng-model="stk.stkContent">  
-         <button ng-click="commit($index)">Update</button>
-         <button ng-click="cancel($index)">Cancel</button>
+         <button ng-click="commit($index);showMore=false">Update</button>
+         <button ng-click="cancel($index);showMore=false">Cancel</button>
        </div>
      
-       <div ng-show="deleting[$index] && showMore">
+       <div ng-show="deleting[$index]">
          <p>Are you sure you want to remove this message?</p>
-         <button ng-click="remove($index)">Yes! Get rid of it</button>
-         <button ng-click="cancel($index)">Leave it for now</button>
+         <button ng-click="remove($index);showMore=false">Yes</button>
+         <button ng-click="cancel($index);showMore=false">Leave it</button>
       </div>  
     </div>
 
