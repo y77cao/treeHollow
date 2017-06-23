@@ -11,6 +11,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+  <link rel="stylesheet" href="javascripts/ng-inline-edit.min.css">
+  <script src="javascripts/ng-inline-edit.min.js"></script>
   <script src="javascripts/controller.js"></script>
   <script src="javascripts/dragula.js"></script>
 </head>
@@ -69,22 +71,28 @@
        <div class="pa2 f7">
          {{stk.uniID}}
        </div>
-       <div class="ph3 pv4 f5">
-         {{stk.stkContent}}
+       <div class="ph3 pv4 f5"
+       inline-edit="stickers[$index].stkContent"
+       inline-edit-validation="myValidator(newValue)"
+       inline-edit-on-blur="cancel">
        </div>
 
 
        <div ng-show="showMore" class="edit-delete-container"> 
        <!--Showing editing and deleting details when mouseover-->
-         <button ng-click="editDetail($index)">Edit</button>
+       <!--  <button ng-click="editDetail($index)">Edit</button> -->
+         <button inline-edit-btn-edit="Edit"></button>
          <button ng-click="deleteDetail($index)">Delete</button>
        </div>
-     
-       <div ng-show="editing[$index]" >
+       <!--
+            <div ng-show="editing[$index]" >
          <input type="text" ng-model="stk.stkContent">  
-         <button ng-click="commit($index);showMore=false">Update</button>
-         <button ng-click="cancel($index);showMore=false">Cancel</button>
-       </div>
+        <button ng-click="commit($index);showMore=false">Update</button>
+         <button ng-click="cancel($index);showMore=false">Cancel</button> 
+         <button inline-edit-save="Save">Update</button>
+         <button inline-edit-btn-cancel="Cancel">Cancel</button>
+        
+       </div> -->
      
        <div ng-show="deleting[$index]">
          <p>Are you sure you want to remove this message?</p>

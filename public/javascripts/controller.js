@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ngResource']);
+var app = angular.module('app', ['ngRoute', 'ngResource', 'angularInlineEdit']);
 
 app.factory('Stickers', ['$resource', function($resource) {
     return $resource('/stickers/:id', null, {
@@ -41,6 +41,11 @@ app.controller('stickerController', ['$scope', 'Stickers', function($scope, Stic
   $scope.deleteDetail = function(index) {
       $scope.deleting[index] = angular.copy($scope.stickers[index]);
   }
+
+  $scope.myValidator = function(newValue) {
+  console.log(newValue);
+  $scope.editing[index] = angular.copy($scope.stickers[index]);
+}
 
   $scope.commit = function(index){
     var stk = $scope.stickers[index];

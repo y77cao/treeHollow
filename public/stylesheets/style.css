@@ -23,6 +23,15 @@ button: hover {
 	color: white;
 }
 
+input {
+    border:none;
+    -webkit-appearance: none;
+     background: transparent;
+     outline: none;
+     text-decoration: dashed underline;
+     color:#606060;
+}
+
 .draggable-container {
 	position: absolute;
 	top: 5%;
@@ -94,4 +103,31 @@ button: hover {
 	margin: auto;
 	width: 30%;
 	height: 30%;
+}
+
+.ng-inline-edit__input {
+  border-bottom: 1px dashed #333;
+}
+
+.ng-inline-edit--error .ng-inline-edit__input {
+  border-color: #f00;
+}
+
+.ng-inline-edit__button {
+	position: absolute;
+	right: 30%;
+	bottom: 3%;
+	display: none;
+}
+
+.ng-inline-edit__button:hover {
+  text-decoration: underline;
+}
+
+li:hover .ng-inline-edit__button {
+	display: inline;
+}
+
+.ng-inline-edit__inner-container a {
+	font-family: 'Lobster', cursive;
 }

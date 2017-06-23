@@ -1,0 +1,20 @@
+$module: 'ng-inline-edit';
+
+.#{$module} {
+
+  &__input {
+    border: 0;
+    outline: 0;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  &__inner-container {
+    display: inline-block;
+  }
+
+  &__button {
+    cursor: pointer;
+  }
+}
