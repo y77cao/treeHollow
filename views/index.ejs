@@ -71,28 +71,29 @@
        <div class="pa2 f7">
          {{stk.uniID}}
        </div>
-       <div class="ph3 pv4 f5"
+       <div class="ph3 pv4 f5 stk-content"
        inline-edit="stickers[$index].stkContent"
        inline-edit-validation="myValidator(newValue)"
-       inline-edit-on-blur="cancel">
+       inline-edit-on-blur="cancel"
+       inline-edit-callback="commit($index)"
+       inline-edit-textarea>
        </div>
 
 
        <div ng-show="showMore" class="edit-delete-container"> 
        <!--Showing editing and deleting details when mouseover-->
        <!--  <button ng-click="editDetail($index)">Edit</button> -->
-         <button inline-edit-btn-edit="Edit"></button>
+         <button inline-edit-btn-edit="Edit" ng-click="inlineEdit=true"></button>
          <button ng-click="deleteDetail($index)">Delete</button>
        </div>
        <!--
             <div ng-show="editing[$index]" >
          <input type="text" ng-model="stk.stkContent">  
         <button ng-click="commit($index);showMore=false">Update</button>
-         <button ng-click="cancel($index);showMore=false">Cancel</button> 
-         <button inline-edit-save="Save">Update</button>
-         <button inline-edit-btn-cancel="Cancel">Cancel</button>
+         <button ng-click="cancel($index);showMore=false">Cancel</button>  -->
+         <button inline-edit-save="Save" ng-show="inlineEdit">Save</button>
         
-       </div> -->
+     <!--  </div> -->
      
        <div ng-show="deleting[$index]">
          <p>Are you sure you want to remove this message?</p>

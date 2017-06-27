@@ -183,6 +183,7 @@
             var input = angular.element(
               (scope.isInputTextarea ?
                 '<textarea ' : '<input type="text" ') +
+                'rows="5" ' +
                 'class="ng-inline-edit__input" ' +
                 'ng-disabled="validating" ' +
                 'ng-show="editMode" ' +

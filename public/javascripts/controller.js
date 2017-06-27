@@ -26,6 +26,7 @@ app.controller('stickerController', ['$scope', 'Stickers', function($scope, Stic
   $scope.deleting = [];
   $scope.writeDetail = false;
   $scope.searchDetail = false;
+  $scope.temp="";
  // $scope.stickers = Stickers.query();
 
   $scope.colorSet = ["#9fdbfc", "#fcbfbf", "#fceebf"];
@@ -42,13 +43,15 @@ app.controller('stickerController', ['$scope', 'Stickers', function($scope, Stic
       $scope.deleting[index] = angular.copy($scope.stickers[index]);
   }
 
-  $scope.myValidator = function(newValue) {
-  console.log(newValue);
-  $scope.editing[index] = angular.copy($scope.stickers[index]);
+  $scope.myValidator = function(newValue, index) {
+     $scope.temp=newValue;
+     console.log($scope.temp);
 }
 
   $scope.commit = function(index){
     var stk = $scope.stickers[index];
+    stk.stkContent = $scope.temp;
+    console.log("Copied stkContent:"+stk.stkContent);
     Stickers.update({id: stk._id}, stk);
     console.log("Edited");
     $scope.editing[index] = false;

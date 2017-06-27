@@ -23,15 +23,6 @@ button: hover {
 	color: white;
 }
 
-input {
-    border:none;
-    -webkit-appearance: none;
-     background: transparent;
-     outline: none;
-     text-decoration: dashed underline;
-     color:#606060;
-}
-
 .draggable-container {
 	position: absolute;
 	top: 5%;
@@ -91,6 +82,9 @@ input {
 	margin: auto;
 	width: 30%;
 	height: 30%;
+	background-color: #fcbfbf;
+	border-radius: 5%;
+	box-shadow: 10px 10px 5px #888888;
 }
 
 .search-detail {
@@ -103,10 +97,9 @@ input {
 	margin: auto;
 	width: 30%;
 	height: 30%;
-}
-
-.ng-inline-edit__input {
-  border-bottom: 1px dashed #333;
+	background-color: #fcbfbf;
+	border-radius: 5%;
+	box-shadow: 10px 10px 5px #888888;
 }
 
 .ng-inline-edit--error .ng-inline-edit__input {
@@ -122,6 +115,17 @@ input {
 
 .ng-inline-edit__button:hover {
   text-decoration: underline;
+}
+
+.stk-content textarea {
+    border:none;
+    -webkit-appearance: none;
+     background: transparent;
+     outline: none;
+     text-decoration: dotted underline;
+     color:#606060;
+     height: 150%;
+     width: 100%;
 }
 
 li:hover .ng-inline-edit__button {
