@@ -72,6 +72,20 @@ button: hover {
 	width: 30%;
 }
 
+.round-square {
+	position: relative;
+	transform: translateZ(0);
+	transition: transform 0.25s ease-out;
+}
+
+.round-square:hover {
+	z-index: 99999;
+	transform: scale(.95);
+	-webkit-box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);
+    -moz-box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);
+    box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);
+}
+
 .write-detail, .search-detail, .delete-detail {
 	z-index: 999;
 	position: absolute;
@@ -93,11 +107,26 @@ button: hover {
 	text-align: center;
 }
 
-.write-detail input, .write-detail button , 
-.search-detail input, .search-detail button.
+.write-detail textarea, .write-detail button , 
+.search-detail textarea, .search-detail button.
 .delete-detail p, .delete-detail button {
 	display: table-cell;
 	vertical-align: middle;
+}
+
+.write-detail textarea, .search-detail textarea {
+	 border:none;
+    -webkit-appearance: none;
+     background: transparent;
+     outline: none;
+     text-decoration: dotted underline;
+     color:#606060;
+     left: 0;
+	 right: 0;
+	 margin: auto;
+     height: 100%;
+     width: 80%;
+     font-size: 2vw;
 }
 
 .ng-inline-edit--error .ng-inline-edit__input {

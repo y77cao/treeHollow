@@ -36,14 +36,14 @@
     </div>
    
     <ul ng-show="writeDetail" class="write-detail">
-      <li><input type="textarea" placeholder="Jot something down" ng-model="newSticker"></li>
+      <li><textarea rows="5" placeholder="Jot something down" ng-model="newSticker"></textarea></li>
       <li><button type="button" ng-click="save();writeDetail=false">Throw it!</button></li>
       <li><button type="button" ng-click="writeDetail=false">Cancel</button></li>
   </ul>
  
 
  <ul ng-show="searchDetail" class="search-detail">
-    <li><input type="text" placeholder="Looking for..." ng-model="searchText"></li>
+    <li><textarea rows="5" placeholder="Looking for..." ng-model="searchText"></textarea></li>
    <li><button type="button" ng-click="searchText='';searchDetail=false">Back</button></li>
   </ul> 
   </div>
@@ -64,9 +64,9 @@
     <li ng-repeat="stk in stickers | filter: searchText"  
         ng-mouseover="showMore=true" 
         ng-mouseleave="showMore=false"
-        class="fl w-50 w-third-m w-25-ns tc pa1 grow">
+        class="fl w-50 w-third-m w-25-ns tc pa1">
     <!--Main content-->
-    <div class="aspect-ratio aspect-ratio--1x1 br4" 
+    <div class="aspect-ratio aspect-ratio--1x1 br4 round-square" 
         ng-style="{background: colorSet[$index%colorSet.length]}">
        <div class="pa2 f7">
          {{stk.uniID}}
@@ -97,11 +97,11 @@
         
      <!--  </div> -->
      
-       <li ng-show="deleting[$index]" class="delete-detail">
-         <li><p>Are you sure you want to remove this message?</p></li>
+       <ul ng-show="deleting[$index]" class="delete-detail">
+         <li><p>You sure?</p></li>
          <li><button ng-click="remove($index);showMore=false">Yes</button></li>
          <li><button ng-click="cancel($index);showMore=false">Leave it</button></li>
-      </li>  
+      </ul>  
     </div>
 
     </li>
