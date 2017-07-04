@@ -212,7 +212,6 @@
                 '<a class="ng-inline-edit__button ng-inline-edit__button--edit" ' +
                   'ng-if="!editMode" ' +
                   'ng-click="editText()"' +
-                  'ng-show="showMore">' +
                     inlineEditBtnEdit +
                 '</a>'));
             }

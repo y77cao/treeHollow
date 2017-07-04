@@ -72,7 +72,7 @@ button: hover {
 	width: 30%;
 }
 
-.write-detail {
+.write-detail, .search-detail, .delete-detail {
 	z-index: 999;
 	position: absolute;
 	left: 0;
@@ -80,26 +80,24 @@ button: hover {
 	top: 0;
 	bottom: 0;
 	margin: auto;
-	width: 30%;
-	height: 30%;
-	background-color: #fcbfbf;
+	padding: 0;
+	padding-top: 10%;
+	width: 50%;
+	height: 50%;
+	background-color: rgba(252, 191, 191, 0.7);
 	border-radius: 5%;
-	box-shadow: 10px 10px 5px #888888;
+	-webkit-box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);
+    -moz-box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);
+    box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);
+	display: block;
+	text-align: center;
 }
 
-.search-detail {
-	z-index: 998;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	margin: auto;
-	width: 30%;
-	height: 30%;
-	background-color: #fcbfbf;
-	border-radius: 5%;
-	box-shadow: 10px 10px 5px #888888;
+.write-detail input, .write-detail button , 
+.search-detail input, .search-detail button.
+.delete-detail p, .delete-detail button {
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .ng-inline-edit--error .ng-inline-edit__input {
@@ -126,6 +124,7 @@ button: hover {
      color:#606060;
      height: 150%;
      width: 100%;
+     text-align: center;
 }
 
 li:hover .ng-inline-edit__button {
@@ -134,4 +133,8 @@ li:hover .ng-inline-edit__button {
 
 .ng-inline-edit__inner-container a {
 	font-family: 'Lobster', cursive;
+}
+
+.ng-inline-edit .ng-inline-edit__button--save {
+  visibility: visible;
 }

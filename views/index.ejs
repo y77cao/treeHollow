@@ -35,17 +35,17 @@
          </div>
     </div>
    
-    <div ng-show="writeDetail" class="write-detail">
-      <input type="text" placeholder="Jot something down" ng-model="newSticker">
-      <button type="button" ng-click="save();writeDetail=false">Throw it!</button>
-      <button type="button" ng-click="writeDetail=false">Cancel</button>
-  </div>
+    <ul ng-show="writeDetail" class="write-detail">
+      <li><input type="textarea" placeholder="Jot something down" ng-model="newSticker"></li>
+      <li><button type="button" ng-click="save();writeDetail=false">Throw it!</button></li>
+      <li><button type="button" ng-click="writeDetail=false">Cancel</button></li>
+  </ul>
  
 
- <div ng-show="searchDetail" class="search-detail">
-    <input type="text" placeholder="Looking for..." ng-model="searchText">
-   <button type="button" ng-click="searchText='';searchDetail=false">Back</button>
-  </div> 
+ <ul ng-show="searchDetail" class="search-detail">
+    <li><input type="text" placeholder="Looking for..." ng-model="searchText"></li>
+   <li><button type="button" ng-click="searchText='';searchDetail=false">Back</button></li>
+  </ul> 
   </div>
 
  <!--Home page-->
@@ -73,9 +73,10 @@
        </div>
        <div class="ph3 pv4 f5 stk-content"
        inline-edit="stickers[$index].stkContent"
+       inline-edit-btn-save="Save"
        inline-edit-validation="myValidator(newValue)"
-       inline-edit-on-blur="cancel"
        inline-edit-callback="commit($index)"
+       inline-edit-on-blur="cancel"
        inline-edit-textarea>
        </div>
 
@@ -83,23 +84,24 @@
        <div ng-show="showMore" class="edit-delete-container"> 
        <!--Showing editing and deleting details when mouseover-->
        <!--  <button ng-click="editDetail($index)">Edit</button> -->
-         <button inline-edit-btn-edit="Edit" ng-click="inlineEdit=true"></button>
+         <button inline-edit-btn-edit="Edit"></button>
          <button ng-click="deleteDetail($index)">Delete</button>
        </div>
+
+       <div ng-show="inlineEdit">Save</div>
        <!--
             <div ng-show="editing[$index]" >
          <input type="text" ng-model="stk.stkContent">  
         <button ng-click="commit($index);showMore=false">Update</button>
          <button ng-click="cancel($index);showMore=false">Cancel</button>  -->
-         <button inline-edit-save="Save" ng-show="inlineEdit">Save</button>
         
      <!--  </div> -->
      
-       <div ng-show="deleting[$index]">
-         <p>Are you sure you want to remove this message?</p>
-         <button ng-click="remove($index);showMore=false">Yes</button>
-         <button ng-click="cancel($index);showMore=false">Leave it</button>
-      </div>  
+       <li ng-show="deleting[$index]" class="delete-detail">
+         <li><p>Are you sure you want to remove this message?</p></li>
+         <li><button ng-click="remove($index);showMore=false">Yes</button></li>
+         <li><button ng-click="cancel($index);showMore=false">Leave it</button></li>
+      </li>  
     </div>
 
     </li>
