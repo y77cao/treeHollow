@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ngResource', 'angularInlineEdit']);
+var app = angular.module('app', ['ngRoute', 'ngResource', 'dragularModule','angularInlineEdit']);
 
 app.factory('Stickers', ['$resource', function($resource) {
     return $resource('/stickers/:id', null, {
@@ -19,6 +19,10 @@ app.controller('parentController', ['$scope', 'Stickers', function($scope, Stick
 }]);
 
 app.controller('stickerController', ['$scope', 'Stickers', function($scope, Stickers) {
+  var container = angular.element(document.querySelector('#draggable-contianer'));
+  dragularService(container,{
+      containersModel: [$scope.stickers]
+    });
   //default values
   $scope.mainPage = true;
   $scope.showMore = false;

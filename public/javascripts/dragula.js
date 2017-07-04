@@ -1,1 +1,0 @@
- var drake = dragula([document.querySelectorAll('draggable-container')]);
