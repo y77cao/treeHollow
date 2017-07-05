@@ -79,8 +79,8 @@ button: hover {
 }
 
 .round-square:hover {
-	z-index: 99999;
-	transform: scale(.95);
+	z-index: 999;
+	transform: scale(0.95);
 	-webkit-box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);
     -moz-box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);
     box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);
@@ -98,7 +98,7 @@ button: hover {
 	padding-top: 10%;
 	width: 50%;
 	height: 50%;
-	background-color: rgba(252, 191, 191, 0.7);
+	background-color: rgba(252, 191, 191, 0.9);
 	border-radius: 5%;
 	-webkit-box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);
     -moz-box-shadow: 31px 25px 78px 1px rgba(153,153,153,0.64);

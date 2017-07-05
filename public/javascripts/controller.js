@@ -18,10 +18,14 @@ app.controller('parentController', ['$scope', 'Stickers', function($scope, Stick
       }    
 }]);
 
-app.controller('stickerController', ['$scope', 'Stickers', function($scope, Stickers) {
-  var container = angular.element(document.querySelector('#draggable-contianer'));
+app.controller('stickerController', ['$scope', 'Stickers', 'dragularService', function($scope, Stickers, dragularService) {
+  var container = angular.element(document.querySelectorAll('#draggable-container'));
   dragularService(container,{
-      containersModel: [$scope.stickers]
+      containersModel: $scope.stickers,
+      moves: function (el, container, handle) {
+      console.log('Handle touched');
+      return handle.classList.contains('round-square');
+      }
     });
   //default values
   $scope.mainPage = true;
