@@ -5,6 +5,7 @@ body {
 
 a {
   text-decoration: none;
+  color:#606060;
 }
 
 ul {
@@ -21,6 +22,19 @@ button {
 
 button: hover {
 	color: white;
+}
+
+.main-page {
+	text-align: center;
+	padding: 0;
+	top: 50%;
+	width: 100%;
+	height: auto;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
 }
 
 .draggable-container {
